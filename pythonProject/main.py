@@ -1,0 +1,2 @@
+m = []
+s = str(input())
