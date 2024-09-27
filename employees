@@ -1,0 +1,24 @@
+employees = {
+    'John': (25, 'Developer', 1000),
+    'Alice': (30, 'Manager', 2000),
+    'Bob': (22, 'Developer', 1100),
+    'Eve': (29, 'Designer', 1700),
+    'Clara': (35, 'Manager', 2500),
+}
+s = dict()
+sr = 0
+for c in employees:
+    if employees[c][-1] is not None:
+        sr += employees[c][-1]
+sr = sr // len(employees)
+print(sr)
+for c in employees:
+    print(c, employees[c])
+    if employees[c][0] < 30 and employees[c][-1] < sr:
+        s[c] = employees[c][-1]
+    sr += employees[c][-1]
+print('\n')
+d = {c: employees[c][-1] for c in s}
+d = sorted(d.items(), key=lambda f: f[1])[::-1]
+for x in d:
+    print(x[0])
